@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: Shopify/upload-to-release@v1
+      - uses: Shopify/upload-to-release@v1.0.1
         with:
           name: axelnt.iso
           path: axelnt.iso
