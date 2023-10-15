@@ -8,8 +8,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - uses: Shopify/upload-to-release@v1.0.1
+      - name: Upload to release
+        uses: JasonEtco/upload-to-release@master
         with:
-          name: axelnt.iso
-          path: axelnt.iso
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
+          args: axelnt.iso
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
