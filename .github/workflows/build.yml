@@ -1,0 +1,15 @@
+name: Build & ISO Creator
+on:
+  push:
+    branches:
+      - dev
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: Shopify/upload-to-release@v1
+        with:
+          name: axelnt.iso
+          path: axelnt.iso
+          repo-token: ${{ secrets.GITHUB_TOKEN }}
