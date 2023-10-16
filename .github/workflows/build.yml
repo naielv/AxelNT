@@ -13,8 +13,8 @@ jobs:
       - name: Build
         run: /bin/sh build.sh
       - name: Upload to release
-        uses: JasonEtco/upload-to-release@master
+        uses: actions/upload-artifact@v3.1.3
         with:
-          args: axelnt.iso
+          path: axelnt.iso
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
