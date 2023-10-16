@@ -1,5 +1,4 @@
-cp -r predist dist
-cp -r src/ dist/boot/python/axelnt/
+cp -r src/ dist/SystemFiles
 
 sudo apt install syslinux-utils -y
 
