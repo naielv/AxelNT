@@ -5,5 +5,4 @@ xorriso \
   -joliet on \
   -map dist / \
   -volid "AxelNT_23"
-sudo isohybrid ./axelnt.iso
 rm -rf dist/
