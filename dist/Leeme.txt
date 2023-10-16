@@ -1,0 +1,4 @@
+Para instalar:
+1) Copia la carpeta "AxelNT_2023" a tu dispositivo
+2) Ejecuta el archivo "Arrancar.cmd" y sigue las instrucciones.
+
