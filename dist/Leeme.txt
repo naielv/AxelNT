@@ -1,4 +1,18 @@
+EuskadiTech (R) AxelNT 2023
+==================================
+
 Para instalar:
-1) Copia la carpeta "AxelNT_2023" a tu dispositivo
+1) Copia la carpeta "AxelNT_2023" a tu dispositivo (Ej: Escritorio)
 2) Ejecuta el archivo "Arrancar.cmd" y sigue las instrucciones.
+
+Para ejecutar:
+1) Abre la ubicacion de la carpeta "AxelNT_2023" (Ej: Escritorio)
+2) Ejecuta el archivo "Arrancar.cmd"
+
+Para Actualizar:
+1) Abre la ubicacion de la carpeta "AxelNT_2023" (Ej: Escritorio)
+2) Copia la carpeta "UserData" a otra parte de tu dispositivo (Ej: Escritorio)
+3) Borra la carpeta "AxelNT_2023"
+4) Sigue los pasos de instalación
+5) Copia la carpeta "UserData" a "AxelNT_2023"
 
