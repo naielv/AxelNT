@@ -17,5 +17,7 @@ def setup():
     input("Pulsa intro para continuar, Ctrl-C para salir.")
     if sys.platform == "win32":
         install_pip()
+        sys.path.append(os.path.join(os.getcwd(), "Python/Scripts"))
+        sys.path.append(os.path.join(os.getcwd(), "Python"))
         install_package("windows-curses")
     importlib.__import__("axelnt_installer").start_installer()
