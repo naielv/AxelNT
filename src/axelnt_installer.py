@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-import curses
 import sys
 
-import cur_tools
+import gui_tools as cur_tools
+from gui_tools import curses
 
 
 # import lorem
