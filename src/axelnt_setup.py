@@ -1,7 +1,7 @@
 import os
 import sys
 import subprocess
-from axelnt_installer import start_installer
+import importlib
 from getpip import main as install_pip
 def install_package(name):
     subprocess.check_call([sys.executable, '-m', 'pip', 'install', name])
@@ -18,4 +18,4 @@ def setup():
     if sys.platform == "win32":
         install_pip()
         install_package("windows-curses")
-    start_installer()
+    importlib.__import__("axelnt_installer").start_installer()
