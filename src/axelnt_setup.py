@@ -4,7 +4,7 @@ import subprocess
 import importlib
 from getpip import main as install_pip
 def install_package(name):
-    subprocess.check_call([sys.executable, '-m', 'pip', 'install', name])
+    subprocess.check_call(['Python/Scripts/pip.exe', 'install', name])
 
 def clear():
     if sys.platform == "win32":
