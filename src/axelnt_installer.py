@@ -1,71 +1,34 @@
 #!/usr/bin/env python3
 import sys
+import pytermgui as ptg
 
-import gui_tools as cur_tools
-from gui_tools import curses
+def main(argv: list[str] | None = None) -> None:
+    """Runs the application."""
 
+    with ptg.WindowManager() as manager:
+        manager.layout = _define_layout()
 
-# import lorem
-# import sqlite3
+        header = ptg.Window(
+            "[app.header] Welcome to PyTermGUI ",
+            box="EMPTY",
+        )
 
+        # Since header is the first defined slot, this will assign to the correct place
+        manager.add(header)
 
-def installer(scr: curses.window):
-    s = cur_tools.curses_init(scr)
+        footer = ptg.Window(ptg.Button("Quit", lambda *_: manager.stop()), box="EMPTY")
 
-    myops = {
-        "File": [
-            ["Exit", "Exit this demo."]
-        ],
-        "Demos": [
-            ["Browse", "Text browsing demo."],
-            ["Input", "Some input demo.",
-                [
-                    ["Normal", "Normal input demo"],
-                    ["Password", "Password input demo"]
-                ]
-            ],
-            ["Forms", "Forms demo"]
-        ],
-        "Help": [
-            ["About", "About this app."]
-        ]
-    }
+        # Since the second slot, body was not assigned to, we need to manually assign
+        # to "footer"
+        manager.add(footer, assign="footer")
 
-    cur_tools.status_bar(s, "Press Enter or ALT+KEY to start the demo.")
-    m, mm = cur_tools.menu_bar(s, myops)
+        manager.add(ptg.Window("My sidebar"), assign="body_right")
+        manager.add(ptg.Window("My body window"), assign="body")
 
-    while m != 1 or mm != 1:  # File->Exit
-
-        cur_tools.status_bar(s, f'Option: ({m} , {mm})')
-
-        # Option branch.
-        if m == 2 and mm == 1:
-            file = "sample.txt"
-            try:
-                file = open(file)
-            except FileNotFoundError:
-                cur_tools.error_win(s, f"File '{file}' not found")
-            else:
-                line = file.read().replace("\n", " ")
-                cur_tools.text_browser(s, "Browsing demo", line)
-                file.close()
-        elif m == 2 and mm == 2:
-            data = cur_tools.input_box(s, "Name", 40, "Enter your name",
-                                       cur_tools.INPUT_TYPE_ALPHANUMERIC)
-            cur_tools.info_win(s, data)
-        elif m == 2 and mm == 3:
-            data = cur_tools.input_box(s, "Password", 40, "Type your most important password =)",
-                                       cur_tools.INPUT_TYPE_ALPHANUMERIC, True)
-            cur_tools.info_win(s, data)
-        elif m == 3 and mm == 1:
-            cur_tools.info_win(s, "Demo for cur tools. By Pablo Niklas")
-        else:
-            cur_tools.info_win(s, ":: Men at work ::")
-
-        m, mm = cur_tools.menu_bar(s, myops)
+    ptg.tim.print("[!gradient(210)]Goodbye!")
 
 def start_installer():
-    curses.wrapper(installer)
+    main()
 
 if __name__ == "__main__":
     start_installer()
